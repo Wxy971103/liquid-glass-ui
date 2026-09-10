@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown } from "lucide-react";
@@ -15,10 +17,10 @@ export const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "lg-glass inline-flex h-10 w-full items-center justify-between rounded-md px-3 text-sm",
+      "u-liquid-glass inline-flex h-10 w-full items-center justify-between rounded-2xl px-5 text-sm",
       "text-[color:var(--lg-text)]",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--lg-cyan)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--lg-bg)]",
-      "disabled:opacity-50 disabled:pointer-events-none",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--lg-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--lg-bg)]",
+      "disabled:opacity-45 disabled:pointer-events-none",
       className
     )}
     {...props}
@@ -40,7 +42,7 @@ export const SelectContent = React.forwardRef<
       ref={ref}
       position={position}
       className={cn(
-        "z-[100] overflow-hidden rounded-xl border border-[color:var(--lg-glass-border)]",
+        "z-[100] overflow-hidden rounded-2xl border border-[color:var(--lg-glass-border)]",
         "bg-[color:var(--lg-elevated)] shadow-[var(--lg-shadow)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",

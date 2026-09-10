@@ -24,14 +24,18 @@ export function CodeBlock({
   }
 
   return (
-    <div className={cn("relative rounded-xl border border-[color:var(--lg-glass-border)] bg-[color:var(--lg-elevated)]", className)}>
+    <div
+      className={cn(
+        "relative rounded-2xl border border-[color:var(--lg-glass-border)] bg-[color:var(--lg-elevated)]",
+        className
+      )}
+    >
       <pre className="overflow-auto p-4 text-sm lg-code text-[color:var(--lg-text)]">
         <code>{code}</code>
       </pre>
       <div className="absolute right-2 top-2">
-        <Button variant="ghost" size="sm" onClick={onCopy} aria-label="复制代码">
+        <Button variant="ghost" size="icon" onClick={onCopy} aria-label="复制代码" title="复制">
           {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-          <span className="hidden sm:inline">{copied ? "已复制" : "复制"}</span>
         </Button>
       </div>
     </div>

@@ -38,3 +38,49 @@ export const componentsNav: NavItem[] = [
   { title: "Tooltip 文字提示", href: "/components/tooltip" }
 ];
 
+export const sidebarGroups: Array<{ title: string; items: NavItem[] }> = [
+  { title: "GUIDE", items: guideNav },
+  {
+    title: "BASIC",
+    items: [
+      { title: "Button", href: "/components/button" },
+      { title: "Tag", href: "/components/tag" },
+      { title: "Badge", href: "/components/badge" },
+      { title: "Card", href: "/components/card" },
+      { title: "Divider", href: "/components/divider" },
+      { title: "Empty", href: "/components/empty" },
+      { title: "Spinner", href: "/components/spinner" }
+    ]
+  },
+  {
+    title: "FORM",
+    items: [
+      { title: "Input", href: "/components/input" },
+      { title: "Select", href: "/components/select" },
+      { title: "Checkbox", href: "/components/checkbox" },
+      { title: "Radio", href: "/components/radio" },
+      { title: "Switch", href: "/components/switch" }
+    ]
+  },
+  {
+    title: "DATA",
+    items: []
+  },
+  {
+    title: "NAVIGATION",
+    items: [
+      { title: "Tabs", href: "/components/tabs" },
+      { title: "Pagination", href: "/components/pagination" }
+    ]
+  },
+  {
+    title: "FEEDBACK",
+    items: [
+      { title: "Dialog", href: "/components/dialog" },
+      { title: "Toast", href: "/components/toast" },
+      { title: "Tooltip", href: "/components/tooltip" }
+    ]
+  },
+  { title: "THEME", items: [{ title: "Playground", href: "/theme" }] }
+];
+

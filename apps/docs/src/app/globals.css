@@ -46,9 +46,13 @@ body::before{
 }
 
 .lg-container{
-  max-width: 1200px;
+  max-width: 1440px;
   margin-inline: auto;
   padding-inline: 24px;
+}
+
+@media (max-width: 768px){
+  .lg-container{ padding-inline: 16px; }
 }
 
 .lg-muted{

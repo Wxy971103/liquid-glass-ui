@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { X } from "lucide-react";
@@ -27,7 +29,7 @@ export const Toast = React.forwardRef<
   <ToastPrimitive.Root
     ref={ref}
     className={cn(
-      "group pointer-events-auto relative overflow-hidden rounded-xl p-4 lg-glass",
+      "group pointer-events-auto relative overflow-hidden rounded-2xl p-4 u-liquid-glass",
       "data-[state=open]:animate-in data-[state=closed]:animate-out",
       "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       "motion-reduce:transition-none motion-reduce:animate-none",

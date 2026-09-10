@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
@@ -18,7 +20,7 @@ export const DialogOverlay = React.forwardRef<
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        "fixed inset-0 z-50 bg-black/55 backdrop-blur-sm",
+        "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm",
         "motion-reduce:transition-none",
         className
       )}
@@ -30,16 +32,30 @@ DialogOverlay.displayName = "DialogOverlay";
 
 export const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
+    surface?: "glass" | "solid";
+    size?: "sm" | "md" | "lg";
+  }
+>(({ className, children, surface = "glass", size = "md", ...props }, ref) => {
+  const sizeClass =
+    size === "sm"
+      ? "w-[min(92vw,400px)]"
+      : size === "md"
+        ? "w-[min(92vw,480px)]"
+        : "w-[min(92vw,560px)]";
+
   return (
     <DialogPortal>
       <DialogOverlay />
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "fixed left-1/2 top-1/2 z-50 w-[min(92vw,560px)] -translate-x-1/2 -translate-y-1/2",
-          "rounded-xl p-5 lg-glass",
+          "fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2",
+          sizeClass,
+          "rounded-2xl p-4",
+          surface === "glass"
+            ? "u-liquid-glass"
+            : "bg-[color:var(--lg-elevated)] border border-[color:var(--lg-glass-border)] shadow-[var(--lg-shadow)]",
           "focus-visible:outline-none",
           className
         )}
@@ -50,7 +66,7 @@ export const DialogContent = React.forwardRef<
           className={cn(
             "absolute right-3 top-3 rounded-md p-2",
             "text-[color:var(--lg-muted)] hover:text-[color:var(--lg-text)] hover:bg-[color:var(--lg-elevated)]/45",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--lg-cyan)]/60"
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--lg-cyan)]"
           )}
           aria-label="关闭"
         >
@@ -69,7 +85,7 @@ export function DialogHeader({ className, ...props }: React.HTMLAttributes<HTMLD
 export function DialogFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className)}
+      className={cn("mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className)}
       {...props}
     />
   );

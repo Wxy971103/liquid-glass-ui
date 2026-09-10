@@ -7,29 +7,42 @@
   --lg-violet:#8B5CFF;
 
   /* glass */
-  --lg-glass-bg: color-mix(in oklab, var(--lg-elevated) 55%, transparent);
-  --lg-glass-border: color-mix(in oklab, var(--lg-text) 10%, transparent);
-  --lg-glass-rim: color-mix(in oklab, var(--lg-text) 18%, transparent);
+  --lg-glass-blur: 28px; /* 20–40 */
+  --lg-glass-saturate: 170%; /* 160–180 */
+  --lg-glass-bg: color-mix(in oklab, var(--lg-elevated) 52%, transparent);
+  --lg-glass-tint: color-mix(in oklab, var(--lg-elevated) 22%, transparent);
+  --lg-glass-border: color-mix(in oklab, var(--lg-text) 14%, transparent);
+  --lg-glass-rim: color-mix(in oklab, var(--lg-text) 22%, transparent);
+  --lg-glass-rim-asym: linear-gradient(180deg,
+    color-mix(in oklab, var(--lg-text) 30%, transparent),
+    color-mix(in oklab, var(--lg-text) 10%, transparent)
+  );
   --lg-glass-overlay: linear-gradient(135deg,
     color-mix(in oklab, var(--lg-cyan) 18%, transparent),
     color-mix(in oklab, var(--lg-violet) 16%, transparent)
   );
+  --lg-glass-specular: linear-gradient(115deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.06) 35%,
+    rgba(255,255,255,0) 62%
+  );
   --lg-shadow: 0 18px 60px rgba(0,0,0,.45);
-  --lg-glass-blur: 18px;
-  --lg-glass-saturate: 150%;
 }
 
 html[data-theme="light"]{
-  --lg-bg:#F7FAFF;
+  --lg-bg:#FAFAFB;
   --lg-elevated:#FFFFFF;
-  --lg-text:#0B1020;
-  --lg-muted:#5B6B8A;
-  --lg-cyan:#007C8A;
-  --lg-violet:#5B33FF;
+  --lg-text:#17171C;
+  --lg-muted:#5C6578;
+  --lg-cyan:#0A8A90;
+  --lg-violet:#6B3FE0;
 
-  --lg-glass-bg: color-mix(in oklab, var(--lg-elevated) 70%, transparent);
-  --lg-glass-border: color-mix(in oklab, var(--lg-text) 12%, transparent);
-  --lg-glass-rim: color-mix(in oklab, var(--lg-text) 18%, transparent);
+  --lg-glass-blur: 32px;
+  --lg-glass-saturate: 175%;
+  --lg-glass-bg: color-mix(in oklab, var(--lg-elevated) 55%, transparent);
+  --lg-glass-tint: color-mix(in oklab, rgba(255,255,255,.55) 55%, transparent);
+  --lg-glass-border: color-mix(in oklab, rgba(255,255,255,.55) 75%, rgba(0,0,0,.08));
+  --lg-glass-rim: color-mix(in oklab, rgba(255,255,255,.55) 85%, transparent);
   --lg-shadow: 0 18px 60px rgba(7,16,32,.16);
 }
 
@@ -42,6 +55,9 @@ html[data-theme="light"]{
   background: var(--lg-elevated);
 }
 
+/* Canonical liquid glass utility (prefer in new code) */
+.u-liquid-glass,
+/* legacy alias */
 .lg-glass{
   background: var(--lg-glass-bg);
   border: 1px solid var(--lg-glass-border);
@@ -51,33 +67,51 @@ html[data-theme="light"]{
   position: relative;
 }
 
+.u-liquid-glass::before,
 .lg-glass::before{
   content:"";
   position:absolute;
   inset:0;
   border-radius:inherit;
   pointer-events:none;
-  background: var(--lg-glass-overlay);
-  opacity:.55;
+  background: var(--lg-glass-overlay), var(--lg-glass-specular);
+  opacity:.62;
   mix-blend-mode: screen;
 }
 
+.u-liquid-glass::after,
 .lg-glass::after{
   content:"";
   position:absolute;
   inset:0;
   border-radius:inherit;
   pointer-events:none;
-  box-shadow: inset 0 1px 0 var(--lg-glass-rim);
+  box-shadow:
+    inset 0 1px 0 var(--lg-glass-rim),
+    inset 0 0 0 1px color-mix(in oklab, var(--lg-glass-border) 65%, transparent);
+  background: var(--lg-glass-rim-asym);
   opacity:.9;
 }
 
 @media (prefers-reduced-transparency: reduce){
+  .u-liquid-glass,
   .lg-glass{
     backdrop-filter:none !important;
     -webkit-backdrop-filter:none !important;
     background: var(--lg-elevated) !important;
   }
+  .u-liquid-glass::before,
+  .lg-glass::before{ opacity:.0 !important; }
+}
+
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))){
+  .u-liquid-glass,
+  .lg-glass{
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    background: var(--lg-elevated) !important;
+  }
+  .u-liquid-glass::before,
   .lg-glass::before{ opacity:.0 !important; }
 }
 

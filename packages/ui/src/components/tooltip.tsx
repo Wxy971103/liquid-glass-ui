@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
@@ -17,7 +19,7 @@ export const TooltipContent = React.forwardRef<
       sideOffset={sideOffset}
       className={cn(
         "z-[100] rounded-lg px-3 py-2 text-xs",
-        "lg-glass",
+        "u-liquid-glass",
         "text-[color:var(--lg-text)]",
         "data-[state=delayed-open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=delayed-open]:fade-in-0",

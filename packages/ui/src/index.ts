@@ -1,3 +1,5 @@
+"use client";
+
 export * from "./lib/cn";
 export * from "./tokens";
 
