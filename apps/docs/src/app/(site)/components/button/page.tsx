@@ -1,6 +1,12 @@
 "use client";
 
-import { Button, Divider, Tooltip, TooltipContent, TooltipTrigger } from "@liquid-glass/ui";
+import {
+  LgButton,
+  LgTooltip,
+  LgTooltipContent,
+  LgTooltipTrigger,
+  Divider
+} from "@liquid-glass/ui";
 import { ArrowRight, Plus } from "lucide-react";
 
 import { DemoBlock } from "../../../../components/demo-block";
@@ -47,65 +53,65 @@ export default function ButtonDocPage() {
       <DemoBlock
         title="Variants"
         description="Primary / Secondary / Ghost / Destructive / Glass"
-        code={`import { Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <div className=\"flex flex-wrap gap-3\">\n      <Button variant=\"primary\">Primary</Button>\n      <Button variant=\"secondary\">Secondary</Button>\n      <Button variant=\"ghost\">Ghost</Button>\n      <Button variant=\"destructive\">Destructive</Button>\n      <Button variant=\"glass\">Glass</Button>\n    </div>\n  );\n}`}
+        code={`import { LgButton } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <div className=\"flex flex-wrap gap-3\">\n      <LgButton variant=\"primary\">Primary</LgButton>\n      <LgButton variant=\"secondary\">Secondary</LgButton>\n      <LgButton variant=\"ghost\">Ghost</LgButton>\n      <LgButton variant=\"destructive\">Destructive</LgButton>\n      <LgButton variant=\"glass\">Glass</LgButton>\n    </div>\n  );\n}`}
       >
         <div className="flex flex-wrap gap-3">
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="destructive">Destructive</Button>
-          <Button variant="glass">Glass</Button>
+          <LgButton variant="primary">Primary</LgButton>
+          <LgButton variant="secondary">Secondary</LgButton>
+          <LgButton variant="ghost">Ghost</LgButton>
+          <LgButton variant="destructive">Destructive</LgButton>
+          <LgButton variant="glass">Glass</LgButton>
         </div>
       </DemoBlock>
 
       <DemoBlock
         title="Sizes + Icon"
-        code={`import { Button, Tooltip, TooltipTrigger, TooltipContent } from "@liquid-glass/ui";\nimport { Plus } from "lucide-react";\n\nexport function Demo(){\n  return (\n    <div className=\"flex flex-wrap items-center gap-3\">\n      <Button size=\"sm\">Small</Button>\n      <Button size=\"md\">Medium</Button>\n      <Button size=\"lg\">Large</Button>\n      <Tooltip>\n        <TooltipTrigger asChild>\n          <Button size=\"icon\" aria-label=\"Add\">\n            <Plus className=\"h-4 w-4\" />\n          </Button>\n        </TooltipTrigger>\n        <TooltipContent>Add</TooltipContent>\n      </Tooltip>\n    </div>\n  );\n}`}
+        code={`import { LgButton, LgTooltip, LgTooltipTrigger, LgTooltipContent } from "@liquid-glass/ui";\nimport { Plus } from "lucide-react";\n\nexport function Example() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-3\">\n      <LgButton size=\"sm\">Small</LgButton>\n      <LgButton size=\"md\">Medium</LgButton>\n      <LgButton size=\"lg\">Large</LgButton>\n      <LgTooltip>\n        <LgTooltipTrigger asChild>\n          <LgButton size=\"icon\" aria-label=\"Add\">\n            <Plus className=\"h-4 w-4\" />\n          </LgButton>\n        </LgTooltipTrigger>\n        <LgTooltipContent>Add</LgTooltipContent>\n      </LgTooltip>\n    </div>\n  );\n}`}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Button size="sm">Small</Button>
-          <Button size="md">Medium</Button>
-          <Button size="lg">Large</Button>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button size="icon" aria-label="Add">
+          <LgButton size="sm">Small</LgButton>
+          <LgButton size="md">Medium</LgButton>
+          <LgButton size="lg">Large</LgButton>
+          <LgTooltip>
+            <LgTooltipTrigger asChild>
+              <LgButton size="icon" aria-label="Add">
                 <Plus className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Add</TooltipContent>
-          </Tooltip>
+              </LgButton>
+            </LgTooltipTrigger>
+            <LgTooltipContent>Add</LgTooltipContent>
+          </LgTooltip>
         </div>
       </DemoBlock>
 
       <DemoBlock
         title="Loading / Disabled"
         description="Loading 会自动禁用并显示 loader。"
-        code={`import { Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <div className=\"flex flex-wrap items-center gap-3\">\n      <Button loading>Loading</Button>\n      <Button variant=\"secondary\" loading>Loading</Button>\n      <Button variant=\"ghost\" disabled>Disabled</Button>\n      <Button variant=\"destructive\" loading>Loading</Button>\n      <Button variant=\"glass\" loading>Loading</Button>\n    </div>\n  );\n}`}
+        code={`import { LgButton } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-3\">\n      <LgButton loading>Loading</LgButton>\n      <LgButton variant=\"secondary\" loading>Loading</LgButton>\n      <LgButton variant=\"ghost\" disabled>Disabled</LgButton>\n      <LgButton variant=\"destructive\" loading>Loading</LgButton>\n      <LgButton variant=\"glass\" loading>Loading</LgButton>\n    </div>\n  );\n}`}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Button loading>Loading</Button>
-          <Button variant="secondary" loading>
+          <LgButton loading>Loading</LgButton>
+          <LgButton variant="secondary" loading>
             Loading
-          </Button>
-          <Button variant="ghost" disabled>
+          </LgButton>
+          <LgButton variant="ghost" disabled>
             Disabled
-          </Button>
-          <Button variant="destructive" loading>
+          </LgButton>
+          <LgButton variant="destructive" loading>
             Loading
-          </Button>
-          <Button variant="glass" loading>
+          </LgButton>
+          <LgButton variant="glass" loading>
             Loading
-          </Button>
+          </LgButton>
         </div>
       </DemoBlock>
 
       <DemoBlock
         title="Icons"
-        code={`import { Button } from "@liquid-glass/ui";\nimport { ArrowRight } from "lucide-react";\n\nexport function Demo(){\n  return (\n    <Button variant=\"primary\">\n      Continue <ArrowRight className=\"h-4 w-4\" />\n    </Button>\n  );\n}`}
+        code={`import { LgButton } from "@liquid-glass/ui";\nimport { ArrowRight } from "lucide-react";\n\nexport function Example() {\n  return (\n    <LgButton variant=\"primary\">\n      Continue <ArrowRight className=\"h-4 w-4\" />\n    </LgButton>\n  );\n}`}
       >
-        <Button variant="primary">
+        <LgButton variant="primary">
           Continue <ArrowRight className="h-4 w-4" />
-        </Button>
+        </LgButton>
       </DemoBlock>
       </div>
 

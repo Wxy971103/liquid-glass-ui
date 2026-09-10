@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Input, Divider } from "@liquid-glass/ui";
+import { LgInput, Divider } from "@liquid-glass/ui";
 import { Search } from "lucide-react";
 
 import { DemoBlock } from "../../../../components/demo-block";
@@ -51,19 +51,19 @@ export default function InputDocPage() {
       <div id="examples" className="space-y-6">
       <DemoBlock
         title="Basic"
-        code={`import { Input } from "@liquid-glass/ui";\n\nexport function Demo(){\n  const [value,setValue]=React.useState(\"\");\n  return (\n    <div className=\"space-y-2\">\n      <Input value={value} onChange={(e)=>setValue(e.target.value)} placeholder=\"输入一些内容…\" />\n      <div className=\"text-sm lg-muted\">value: {value}</div>\n    </div>\n  );\n}`}
+        code={`import { LgInput } from "@liquid-glass/ui";\n\nexport function Example() {\n  const [value, setValue] = React.useState(\"\");\n  return (\n    <div className=\"space-y-2\">\n      <LgInput value={value} onChange={(e) => setValue(e.target.value)} placeholder=\"输入一些内容…\" />\n      <div className=\"text-sm lg-muted\">value: {value}</div>\n    </div>\n  );\n}`}
       >
         <div className="space-y-2">
-          <Input value={value} onChange={(e) => setValue(e.target.value)} placeholder="输入一些内容…" />
+          <LgInput value={value} onChange={(e) => setValue(e.target.value)} placeholder="输入一些内容…" />
           <div className="text-sm lg-muted">value: {value || "（空）"}</div>
         </div>
       </DemoBlock>
 
       <DemoBlock
         title="SearchField (leading icon)"
-        code={`import { Input } from "@liquid-glass/ui";\nimport { Search } from \"lucide-react\";\n\nexport function Demo(){\n  const [query,setQuery]=React.useState(\"\");\n  return (\n    <Input\n      value={query}\n      onChange={(e)=>setQuery(e.target.value)}\n      placeholder=\"Search…\"\n      leadingIcon={<Search className=\"h-4 w-4\" />}\n    />\n  );\n}`}
+        code={`import { LgInput } from "@liquid-glass/ui";\nimport { Search } from \"lucide-react\";\n\nexport function Example() {\n  const [query, setQuery] = React.useState(\"\");\n  return (\n    <LgInput\n      value={query}\n      onChange={(e) => setQuery(e.target.value)}\n      placeholder=\"Search…\"\n      leadingIcon={<Search className=\"h-4 w-4\" />}\n    />\n  );\n}`}
       >
-        <Input
+        <LgInput
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search…"
@@ -73,32 +73,32 @@ export default function InputDocPage() {
 
       <DemoBlock
         title="Sizes"
-        code={`<div className=\"grid gap-3\">\n  <Input size=\"sm\" placeholder=\"Small\" />\n  <Input size=\"md\" placeholder=\"Medium\" />\n  <Input size=\"lg\" placeholder=\"Large\" />\n</div>`}
+        code={`import { LgInput } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <div className=\"grid gap-3\">\n      <LgInput size=\"sm\" placeholder=\"Small\" />\n      <LgInput size=\"md\" placeholder=\"Medium\" />\n      <LgInput size=\"lg\" placeholder=\"Large\" />\n    </div>\n  );\n}`}
       >
         <div className="grid gap-3">
-          <Input size="sm" placeholder="Small" />
-          <Input size="md" placeholder="Medium" />
-          <Input size="lg" placeholder="Large" />
+          <LgInput size="sm" placeholder="Small" />
+          <LgInput size="md" placeholder="Medium" />
+          <LgInput size="lg" placeholder="Large" />
         </div>
       </DemoBlock>
 
       <DemoBlock
         title="States"
         description="Error / Loading / Disabled"
-        code={`<div className=\"grid gap-3\">\n  <Input error placeholder=\"Error\" />\n  <Input loading placeholder=\"Loading\" />\n  <Input disabled placeholder=\"Disabled\" />\n</div>`}
+        code={`import { LgInput } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <div className=\"grid gap-3\">\n      <LgInput error placeholder=\"Error\" />\n      <LgInput loading placeholder=\"Loading\" />\n      <LgInput disabled placeholder=\"Disabled\" />\n    </div>\n  );\n}`}
       >
         <div className="grid gap-3">
-          <Input error placeholder="Error" />
-          <Input loading placeholder="Loading" />
-          <Input disabled placeholder="Disabled" />
+          <LgInput error placeholder="Error" />
+          <LgInput loading placeholder="Loading" />
+          <LgInput disabled placeholder="Disabled" />
         </div>
       </DemoBlock>
 
       <DemoBlock
         title="Glass stroke + solid fill"
-        code={`<Input variant=\"glass\" placeholder=\"Glass stroke\" />`}
+        code={`import { LgInput } from "@liquid-glass/ui";\n\nexport function Example() {\n  return <LgInput variant=\"glass\" placeholder=\"Glass stroke\" />;\n}`}
       >
-        <Input variant="glass" placeholder="Glass stroke" />
+        <LgInput variant="glass" placeholder="Glass stroke" />
       </DemoBlock>
       </div>
 

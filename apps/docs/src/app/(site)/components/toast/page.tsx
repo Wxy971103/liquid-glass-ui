@@ -21,7 +21,7 @@ export default function ToastDocPage() {
 
       <DemoBlock
         title="触发 Toast"
-        code={`import { useToast, Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  const { toast } = useToast();\n  return (\n    <Button onClick={()=>toast({ title:\"已保存\", description:\"你的设置已成功保存。\" })}>\n      触发 Toast\n    </Button>\n  );\n}`}
+        code={`import { useToast, LgButton } from "@liquid-glass/ui";\n\nexport function Example() {\n  const { toast } = useToast();\n  return (\n    <LgButton onClick={() => toast({ title: \"已保存\", description: \"你的设置已成功保存。\" })}>\n      触发 Toast\n    </LgButton>\n  );\n}`}
       >
         <ToastDemo />
       </DemoBlock>

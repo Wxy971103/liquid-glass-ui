@@ -1,6 +1,12 @@
 "use client";
 
-import { Button, Divider, Tooltip, TooltipTrigger, TooltipContent } from "@liquid-glass/ui";
+import {
+  Divider,
+  LgButton,
+  LgTooltip,
+  LgTooltipContent,
+  LgTooltipTrigger
+} from "@liquid-glass/ui";
 
 import { DemoBlock } from "../../../../components/demo-block";
 import { PropsTable, type PropRow } from "../../../../components/props-table";
@@ -22,14 +28,14 @@ export default function TooltipDocPage() {
 
       <DemoBlock
         title="基础用法"
-        code={`import { Tooltip, TooltipTrigger, TooltipContent, Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"secondary\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent>这是一个 Tooltip</TooltipContent>\n    </Tooltip>\n  );\n}`}
+        code={`import { LgTooltip, LgTooltipTrigger, LgTooltipContent, LgButton } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgTooltip>\n      <LgTooltipTrigger asChild>\n        <LgButton variant=\"secondary\">Hover me</LgButton>\n      </LgTooltipTrigger>\n      <LgTooltipContent>这是一个 Tooltip</LgTooltipContent>\n    </LgTooltip>\n  );\n}`}
       >
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="secondary">Hover me</Button>
-          </TooltipTrigger>
-          <TooltipContent>这是一个 Tooltip</TooltipContent>
-        </Tooltip>
+        <LgTooltip>
+          <LgTooltipTrigger asChild>
+            <LgButton variant="secondary">Hover me</LgButton>
+          </LgTooltipTrigger>
+          <LgTooltipContent>这是一个 Tooltip</LgTooltipContent>
+        </LgTooltip>
       </DemoBlock>
 
       <Divider />

@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger, TabsContent, Card, Divider } from "@liquid-glass/ui";
+import { LgTabs, LgTabsList, LgTabsTrigger, LgTabsContent, Card, Divider } from "@liquid-glass/ui";
 
 import { DemoBlock } from "../../../../components/demo-block";
 import { PropsTable, type PropRow } from "../../../../components/props-table";
@@ -42,91 +42,91 @@ export default function TabsDocPage() {
       <div id="examples" className="space-y-6">
       <DemoBlock
         title="Underline"
-        code={`import { Tabs, TabsList, TabsTrigger, TabsContent } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Tabs defaultValue=\"a\">\n      <TabsList variant=\"underline\">\n        <TabsTrigger value=\"a\">Overview</TabsTrigger>\n        <TabsTrigger value=\"b\">API</TabsTrigger>\n        <TabsTrigger value=\"c\" disabled>Disabled</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"a\">...</TabsContent>\n      <TabsContent value=\"b\">...</TabsContent>\n      <TabsContent value=\"c\">...</TabsContent>\n    </Tabs>\n  );\n}`}
+        code={`import { LgTabs, LgTabsList, LgTabsTrigger, LgTabsContent } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgTabs defaultValue=\"a\">\n      <LgTabsList variant=\"underline\">\n        <LgTabsTrigger value=\"a\">Overview</LgTabsTrigger>\n        <LgTabsTrigger value=\"b\">API</LgTabsTrigger>\n        <LgTabsTrigger value=\"c\" disabled>Disabled</LgTabsTrigger>\n      </LgTabsList>\n      <LgTabsContent value=\"a\">...</LgTabsContent>\n      <LgTabsContent value=\"b\">...</LgTabsContent>\n      <LgTabsContent value=\"c\">...</LgTabsContent>\n    </LgTabs>\n  );\n}`}
       >
-        <Tabs defaultValue="a">
-          <TabsList variant="underline">
-            <TabsTrigger value="a">Overview</TabsTrigger>
-            <TabsTrigger value="b">API</TabsTrigger>
-            <TabsTrigger value="c" disabled>
+        <LgTabs defaultValue="a">
+          <LgTabsList variant="underline">
+            <LgTabsTrigger value="a">Overview</LgTabsTrigger>
+            <LgTabsTrigger value="b">API</LgTabsTrigger>
+            <LgTabsTrigger value="c" disabled>
               Disabled
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="a">
+            </LgTabsTrigger>
+          </LgTabsList>
+          <LgTabsContent value="a">
             <Card glass={false} className="p-4">
               <div className="text-sm">Underline tabs</div>
               <div className="text-sm lg-muted mt-1">适合顶栏导航与信息切换。</div>
             </Card>
-          </TabsContent>
-          <TabsContent value="b">
+          </LgTabsContent>
+          <LgTabsContent value="b">
             <Card glass={false} className="p-4">
               <div className="text-sm">Content B</div>
             </Card>
-          </TabsContent>
-          <TabsContent value="c">
+          </LgTabsContent>
+          <LgTabsContent value="c">
             <Card glass={false} className="p-4">
               <div className="text-sm">Disabled</div>
             </Card>
-          </TabsContent>
-        </Tabs>
+          </LgTabsContent>
+        </LgTabs>
       </DemoBlock>
 
       <DemoBlock
         title="Pill"
-        code={`<Tabs defaultValue=\"a\">\n  <TabsList variant=\"pill\">...\n  </TabsList>\n</Tabs>`}
+        code={`import { LgTabs, LgTabsList, LgTabsTrigger } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgTabs defaultValue=\"a\">\n      <LgTabsList variant=\"pill\">\n        <LgTabsTrigger value=\"a\">One</LgTabsTrigger>\n        <LgTabsTrigger value=\"b\">Two</LgTabsTrigger>\n        <LgTabsTrigger value=\"c\">Three</LgTabsTrigger>\n      </LgTabsList>\n    </LgTabs>\n  );\n}`}
       >
-        <Tabs defaultValue="a">
-          <TabsList variant="pill">
-            <TabsTrigger value="a">One</TabsTrigger>
-            <TabsTrigger value="b">Two</TabsTrigger>
-            <TabsTrigger value="c">Three</TabsTrigger>
-          </TabsList>
-          <TabsContent value="a">
+        <LgTabs defaultValue="a">
+          <LgTabsList variant="pill">
+            <LgTabsTrigger value="a">One</LgTabsTrigger>
+            <LgTabsTrigger value="b">Two</LgTabsTrigger>
+            <LgTabsTrigger value="c">Three</LgTabsTrigger>
+          </LgTabsList>
+          <LgTabsContent value="a">
             <Card glass={false} className="p-4">
               <div className="text-sm">Pill tabs</div>
             </Card>
-          </TabsContent>
-          <TabsContent value="b">
+          </LgTabsContent>
+          <LgTabsContent value="b">
             <Card glass={false} className="p-4">
               <div className="text-sm">Two</div>
             </Card>
-          </TabsContent>
-          <TabsContent value="c">
+          </LgTabsContent>
+          <LgTabsContent value="c">
             <Card glass={false} className="p-4">
               <div className="text-sm">Three</div>
             </Card>
-          </TabsContent>
-        </Tabs>
+          </LgTabsContent>
+        </LgTabs>
       </DemoBlock>
 
       <DemoBlock
         title="Glass track"
         description="适合强调区域或玻璃面板上。"
-        code={`<Tabs defaultValue=\"a\">\n  <TabsList variant=\"glass\">...\n  </TabsList>\n</Tabs>`}
+        code={`import { LgTabs, LgTabsList, LgTabsTrigger } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgTabs defaultValue=\"a\">\n      <LgTabsList variant=\"glass\">\n        <LgTabsTrigger value=\"a\">Glass</LgTabsTrigger>\n        <LgTabsTrigger value=\"b\">Pill</LgTabsTrigger>\n        <LgTabsTrigger value=\"c\">Underline</LgTabsTrigger>\n      </LgTabsList>\n    </LgTabs>\n  );\n}`}
       >
-        <Tabs defaultValue="a">
-          <TabsList variant="glass">
-            <TabsTrigger value="a">Glass</TabsTrigger>
-            <TabsTrigger value="b">Pill</TabsTrigger>
-            <TabsTrigger value="c">Underline</TabsTrigger>
-          </TabsList>
-          <TabsContent value="a">
+        <LgTabs defaultValue="a">
+          <LgTabsList variant="glass">
+            <LgTabsTrigger value="a">Glass</LgTabsTrigger>
+            <LgTabsTrigger value="b">Pill</LgTabsTrigger>
+            <LgTabsTrigger value="c">Underline</LgTabsTrigger>
+          </LgTabsList>
+          <LgTabsContent value="a">
             <Card glass={false} className="p-4">
               <div className="text-sm">Glass track</div>
               <div className="text-sm lg-muted mt-1">TabsList 使用 .u-liquid-glass。</div>
             </Card>
-          </TabsContent>
-          <TabsContent value="b">
+          </LgTabsContent>
+          <LgTabsContent value="b">
             <Card glass={false} className="p-4">
               <div className="text-sm">…</div>
             </Card>
-          </TabsContent>
-          <TabsContent value="c">
+          </LgTabsContent>
+          <LgTabsContent value="c">
             <Card glass={false} className="p-4">
               <div className="text-sm">…</div>
             </Card>
-          </TabsContent>
-        </Tabs>
+          </LgTabsContent>
+        </LgTabs>
       </DemoBlock>
       </div>
 

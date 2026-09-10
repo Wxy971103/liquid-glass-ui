@@ -53,7 +53,7 @@ export default function DialogDocPage() {
       <DemoBlock
         title="Confirm"
         description="确认类弹窗：主操作明确，文案简洁。"
-        code={`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button>打开 Confirm</Button>\n      </DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>确认操作</DialogTitle>\n          <DialogDescription>该操作会立即生效，且无法撤销。</DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <Button variant=\"ghost\">取消</Button>\n          <Button>继续</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}`}
+        code={`import { LgDialog, LgDialogTrigger, LgDialogContent, LgDialogHeader, LgDialogTitle, LgDialogDescription, LgDialogFooter, LgButton } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgDialog>\n      <LgDialogTrigger asChild>\n        <LgButton>打开 Confirm</LgButton>\n      </LgDialogTrigger>\n      <LgDialogContent>\n        <LgDialogHeader>\n          <LgDialogTitle>确认操作</LgDialogTitle>\n          <LgDialogDescription>该操作会立即生效，且无法撤销。</LgDialogDescription>\n        </LgDialogHeader>\n        <LgDialogFooter>\n          <LgButton variant=\"ghost\">取消</LgButton>\n          <LgButton variant=\"primary\">继续</LgButton>\n        </LgDialogFooter>\n      </LgDialogContent>\n    </LgDialog>\n  );\n}`}
       >
         <DialogConfirmDemo />
       </DemoBlock>
@@ -61,7 +61,7 @@ export default function DialogDocPage() {
       <DemoBlock
         title="Form"
         description="表单弹窗：输入类保持实体填充，footer 负责提交/取消。"
-        code={`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button, Input } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Dialog>\n      <DialogTrigger asChild><Button>打开 Form</Button></DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>创建记录</DialogTitle>\n          <DialogDescription>在对话框中提交表单。</DialogDescription>\n        </DialogHeader>\n        <form className=\"mt-4 grid gap-3\">\n          <Input placeholder=\"名称\" />\n          <Input placeholder=\"描述\" />\n          <DialogFooter>\n            <Button variant=\"ghost\" type=\"button\">取消</Button>\n            <Button type=\"submit\">提交</Button>\n          </DialogFooter>\n        </form>\n      </DialogContent>\n    </Dialog>\n  );\n}`}
+        code={`import { LgDialog, LgDialogTrigger, LgDialogContent, LgDialogHeader, LgDialogTitle, LgDialogDescription, LgDialogFooter, LgButton, LgInput } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgDialog>\n      <LgDialogTrigger asChild><LgButton>打开 Form</LgButton></LgDialogTrigger>\n      <LgDialogContent>\n        <LgDialogHeader>\n          <LgDialogTitle>创建记录</LgDialogTitle>\n          <LgDialogDescription>在对话框中提交表单。</LgDialogDescription>\n        </LgDialogHeader>\n        <form className=\"mt-4 grid gap-3\">\n          <LgInput placeholder=\"名称\" />\n          <LgInput placeholder=\"描述\" />\n          <LgDialogFooter>\n            <LgButton variant=\"ghost\" type=\"button\">取消</LgButton>\n            <LgButton type=\"submit\">提交</LgButton>\n          </LgDialogFooter>\n        </form>\n      </LgDialogContent>\n    </LgDialog>\n  );\n}`}
       >
         <DialogFormDemo />
       </DemoBlock>
@@ -69,7 +69,7 @@ export default function DialogDocPage() {
       <DemoBlock
         title="Detail"
         description="详情弹窗：适合 key-value 信息与只读内容。"
-        code={`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button, Card, Divider } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Dialog>\n      <DialogTrigger asChild><Button variant=\"secondary\">查看详情</Button></DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>请求详情</DialogTitle>\n          <DialogDescription>展示只读字段与信息。</DialogDescription>\n        </DialogHeader>\n        <Card glass={false} className=\"mt-4 p-4\">...\n          <Divider className=\"my-3\" />\n          {/* rows */}\n        </Card>\n        <DialogFooter>\n          <Button variant=\"ghost\">关闭</Button>\n          <Button>复制 ID</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}`}
+        code={`import { LgDialog, LgDialogTrigger, LgDialogContent, LgDialogHeader, LgDialogTitle, LgDialogDescription, LgDialogFooter, LgButton, Card, Divider } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgDialog>\n      <LgDialogTrigger asChild><LgButton variant=\"secondary\">查看详情</LgButton></LgDialogTrigger>\n      <LgDialogContent>\n        <LgDialogHeader>\n          <LgDialogTitle>请求详情</LgDialogTitle>\n          <LgDialogDescription>展示只读字段与信息。</LgDialogDescription>\n        </LgDialogHeader>\n        <Card glass={false} className=\"mt-4 p-4\">\n          ...\n          <Divider className=\"my-3\" />\n        </Card>\n        <LgDialogFooter>\n          <LgButton variant=\"ghost\">关闭</LgButton>\n          <LgButton>复制 ID</LgButton>\n        </LgDialogFooter>\n      </LgDialogContent>\n    </LgDialog>\n  );\n}`}
       >
         <DialogDetailDemo />
       </DemoBlock>
@@ -77,7 +77,7 @@ export default function DialogDocPage() {
       <DemoBlock
         title="Destructive"
         description="破坏性操作：使用 destructive 变体并加强风险提示。"
-        code={`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Dialog>\n      <DialogTrigger asChild><Button variant=\"destructive\">删除</Button></DialogTrigger>\n      <DialogContent surface=\"solid\" size=\"sm\">\n        <DialogHeader>\n          <DialogTitle>删除项目？</DialogTitle>\n          <DialogDescription>删除后将无法恢复。</DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <Button variant=\"ghost\">取消</Button>\n          <Button variant=\"destructive\">确认删除</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}`}
+        code={`import { LgDialog, LgDialogTrigger, LgDialogContent, LgDialogHeader, LgDialogTitle, LgDialogDescription, LgDialogFooter, LgButton } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgDialog>\n      <LgDialogTrigger asChild><LgButton variant=\"destructive\">删除</LgButton></LgDialogTrigger>\n      <LgDialogContent surface=\"solid\" size=\"sm\">\n        <LgDialogHeader>\n          <LgDialogTitle>删除项目？</LgDialogTitle>\n          <LgDialogDescription>删除后将无法恢复。</LgDialogDescription>\n        </LgDialogHeader>\n        <LgDialogFooter>\n          <LgButton variant=\"ghost\">取消</LgButton>\n          <LgButton variant=\"destructive\">确认删除</LgButton>\n        </LgDialogFooter>\n      </LgDialogContent>\n    </LgDialog>\n  );\n}`}
       >
         <DialogDestructiveDemo />
       </DemoBlock>
@@ -85,7 +85,7 @@ export default function DialogDocPage() {
       <DemoBlock
         title="Scroll"
         description="长内容：内容区滚动，footer 保持固定操作区。"
-        code={`import { DialogContent, DialogHeader, DialogFooter } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <DialogContent>\n      <DialogHeader />\n      <div className=\"max-h-[60vh] overflow-auto\">...</div>\n      <DialogFooter />\n    </DialogContent>\n  );\n}`}
+        code={`import { LgDialogContent, LgDialogHeader, LgDialogFooter } from "@liquid-glass/ui";\n\nexport function Example() {\n  return (\n    <LgDialogContent>\n      <LgDialogHeader />\n      <div className=\"max-h-[60vh] overflow-auto\">...</div>\n      <LgDialogFooter />\n    </LgDialogContent>\n  );\n}`}
       >
         <DialogScrollDemo />
       </DemoBlock>
