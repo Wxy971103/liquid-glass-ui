@@ -36,10 +36,11 @@ export function Sidebar({
                     key={it.href}
                     href={it.href}
                     className={cn(
-                      "block rounded-xl px-3 py-2 text-sm transition",
+                      "flex items-center h-9 rounded-lg px-4 text-[13px] font-medium transition",
+                      "border border-[color:var(--docs-nav-item-border)] bg-[color:var(--docs-nav-item-bg)]",
                       active
-                        ? "text-[color:var(--lg-text)] bg-[color:var(--lg-elevated)]/45"
-                        : "text-[color:var(--lg-muted)] hover:text-[color:var(--lg-text)] hover:bg-[color:var(--lg-elevated)]/30"
+                        ? "text-[color:var(--docs-nav-item-active-text)] bg-[color:var(--docs-nav-item-active-bg)] border-[color:var(--docs-nav-item-active-border)]"
+                        : "text-[color:var(--lg-muted)] hover:text-[color:var(--lg-text)]"
                     )}
                   >
                     {it.title}

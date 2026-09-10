@@ -13,7 +13,7 @@ export const topNav: NavItem[] = [
 export const guideNav: NavItem[] = [
   { title: "安装", href: "/guide/installation" },
   { title: "快速开始", href: "/guide/quickstart" },
-  { title: "Tokens", href: "/guide/tokens" },
+  { title: "Design tokens", href: "/guide/design-tokens" },
   { title: "主题切换", href: "/guide/theming" },
   { title: "玻璃分层", href: "/guide/glass-layering" }
 ];
@@ -64,14 +64,17 @@ export const sidebarGroups: Array<{ title: string; items: NavItem[] }> = [
   },
   {
     title: "DATA",
-    items: []
+    items: [
+      { title: "Pagination", href: "/components/pagination" },
+      { title: "Tag", href: "/components/tag" },
+      { title: "Badge", href: "/components/badge" },
+      { title: "Empty", href: "/components/empty" },
+      { title: "Spinner", href: "/components/spinner" }
+    ]
   },
   {
     title: "NAVIGATION",
-    items: [
-      { title: "Tabs", href: "/components/tabs" },
-      { title: "Pagination", href: "/components/pagination" }
-    ]
+    items: [{ title: "Tabs", href: "/components/tabs" }]
   },
   {
     title: "FEEDBACK",

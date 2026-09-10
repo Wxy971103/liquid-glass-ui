@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Copy, Check } from "lucide-react";
-import { Button, cn } from "@liquid-glass/ui";
+import { cn } from "@liquid-glass/ui";
 
 export function CodeBlock({
   code,
@@ -36,9 +35,17 @@ export function CodeBlock({
         <div className="text-xs font-semibold tracking-wide text-[color:var(--lg-muted)]">
           {language}
         </div>
-        <Button variant="ghost" size="icon" onClick={onCopy} aria-label="复制代码" title="复制">
-          {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-        </Button>
+        <button
+          type="button"
+          onClick={onCopy}
+          className={cn(
+            "text-xs font-semibold",
+            copied ? "text-[color:var(--lg-muted)]" : "text-[color:var(--lg-cyan)] hover:underline"
+          )}
+          aria-label="复制代码"
+        >
+          {copied ? "Copied" : "Copy"}
+        </button>
       </div>
 
       <pre className="overflow-auto p-4 text-sm lg-code text-[color:var(--lg-text)]">

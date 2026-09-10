@@ -30,11 +30,16 @@ function variantClass(variant: ButtonVariant) {
     case "primary":
       return "bg-[color:var(--lg-cyan)] text-[color:var(--lg-bg)] hover:brightness-105 active:brightness-95";
     case "secondary":
-      return "bg-[color:var(--lg-elevated)] text-[color:var(--lg-text)] border border-[color:var(--lg-glass-border)] hover:bg-[color:color-mix(in_oklab,var(--lg-elevated)_88%,transparent)]";
+      return cn(
+        "bg-[color:var(--lg-elevated)] text-[color:var(--lg-text)]",
+        "border border-[color:color-mix(in_oklab,var(--lg-text)_14%,transparent)]",
+        "shadow-[inset_0_1px_0_color-mix(in_oklab,var(--lg-text)_18%,transparent)]",
+        "hover:bg-[color:color-mix(in_oklab,var(--lg-elevated)_92%,transparent)]"
+      );
     case "ghost":
-      return "bg-transparent text-[color:var(--lg-text)] hover:bg-[color:color-mix(in_oklab,var(--lg-elevated)_72%,transparent)]";
+      return "bg-transparent text-[color:var(--lg-text)] hover:bg-[color:color-mix(in_oklab,var(--lg-text)_6%,transparent)]";
     case "destructive":
-      return "bg-[color:color-mix(in_oklab,#ff2e55_82%,var(--lg-violet)_18%)] text-white hover:brightness-105 active:brightness-95";
+      return "bg-[color:var(--lg-danger)] text-white hover:brightness-105 active:brightness-95";
     case "glass":
       return "u-liquid-glass text-[color:var(--lg-text)] hover:brightness-110 active:brightness-95";
     default:
@@ -43,9 +48,9 @@ function variantClass(variant: ButtonVariant) {
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "h-8 px-4 text-sm",
-  md: "h-10 px-5 text-sm",
-  lg: "h-12 px-6 text-base",
+  sm: "h-8 px-3 text-[13px]",
+  md: "h-10 px-4 text-sm",
+  lg: "h-12 px-5 text-[15px]",
   icon: "h-10 w-10 px-0"
 };
 

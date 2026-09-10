@@ -20,7 +20,7 @@ export const DialogOverlay = React.forwardRef<
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm",
+        "fixed inset-0 z-50 bg-black/65",
         "motion-reduce:transition-none",
         className
       )}
@@ -52,7 +52,7 @@ export const DialogContent = React.forwardRef<
         className={cn(
           "fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2",
           sizeClass,
-          "rounded-2xl p-4",
+          "overflow-hidden rounded-[20px] p-5",
           surface === "glass"
             ? "u-liquid-glass"
             : "bg-[color:var(--lg-elevated)] border border-[color:var(--lg-glass-border)] shadow-[var(--lg-shadow)]",
@@ -64,8 +64,8 @@ export const DialogContent = React.forwardRef<
         {children}
         <DialogPrimitive.Close
           className={cn(
-            "absolute right-3 top-3 rounded-md p-2",
-            "text-[color:var(--lg-muted)] hover:text-[color:var(--lg-text)] hover:bg-[color:var(--lg-elevated)]/45",
+            "absolute right-3 top-3 rounded-md p-1.5",
+            "text-[color:var(--lg-muted)] hover:text-[color:var(--lg-text)]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--lg-cyan)]"
           )}
           aria-label="关闭"
@@ -85,7 +85,11 @@ export function DialogHeader({ className, ...props }: React.HTMLAttributes<HTMLD
 export function DialogFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className)}
+      className={cn(
+        "mt-4 pt-4 border-t border-[color:color-mix(in_oklab,var(--lg-glass-border)_70%,transparent)]",
+        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        className
+      )}
       {...props}
     />
   );

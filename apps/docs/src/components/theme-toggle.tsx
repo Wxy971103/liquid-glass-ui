@@ -12,9 +12,8 @@ export function ThemeToggle() {
   const label = theme === "dark" ? "切换到浅色" : "切换到深色";
 
   return (
-    <Button variant="ghost" size="sm" onClick={toggle} aria-label={label} title={label}>
+    <Button variant="ghost" size="icon" onClick={toggle} aria-label={label} title={label}>
       <Icon className="h-4 w-4" />
-      <span className="hidden sm:inline">{theme === "dark" ? "浅色" : "深色"}</span>
     </Button>
   );
 }

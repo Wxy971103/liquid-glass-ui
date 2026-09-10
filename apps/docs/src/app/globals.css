@@ -15,22 +15,22 @@ body{
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Liquid background layers for docs shell */
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(1200px 800px at 15% 10%, color-mix(in oklab, var(--lg-cyan) 18%, transparent), transparent 60%),
-    radial-gradient(900px 700px at 85% 20%, color-mix(in oklab, var(--lg-violet) 16%, transparent), transparent 62%),
-    radial-gradient(900px 900px at 40% 90%, color-mix(in oklab, var(--lg-cyan) 10%, transparent), transparent 60%);
-  opacity: .9;
-  pointer-events: none;
+/* Pixel alignment: keep shell background clean (no bloom layers) */
+
+.docs-shell{
+  --docs-nav-item-bg: rgba(255,255,255,0.06);
+  --docs-nav-item-border: rgba(255,255,255,0.10);
+  --docs-nav-item-active-bg: rgba(15,17,23,0.92);
+  --docs-nav-item-active-border: rgba(255,255,255,0.22);
+  --docs-nav-item-active-text: var(--lg-cyan);
 }
 
-@media (prefers-reduced-transparency: reduce){
-  body::before{ opacity: 0; }
+html[data-theme="light"] .docs-shell{
+  --docs-nav-item-bg: transparent;
+  --docs-nav-item-border: transparent;
+  --docs-nav-item-active-bg: color-mix(in oklab, var(--lg-cyan) 10%, transparent);
+  --docs-nav-item-active-border: transparent;
+  --docs-nav-item-active-text: var(--lg-cyan);
 }
 
 .lg-h1{

@@ -17,21 +17,43 @@ import {
 
 export function DialogConfirmDemo() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button>打开 Confirm</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>确认操作</DialogTitle>
-          <DialogDescription>该操作会立即生效，且无法撤销。</DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <Button variant="ghost">取消</Button>
-          <Button>继续</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+    <div className="flex flex-wrap items-center gap-3">
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button>Solid</Button>
+        </DialogTrigger>
+        <DialogContent surface="solid" size="sm">
+          <DialogHeader>
+            <DialogTitle>Confirm action</DialogTitle>
+            <DialogDescription>
+              This will publish the current draft to production. Continue?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="ghost">Cancel</Button>
+            <Button variant="primary">Confirm</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="glass">Glass</Button>
+        </DialogTrigger>
+        <DialogContent surface="glass" size="sm">
+          <DialogHeader>
+            <DialogTitle>Confirm action</DialogTitle>
+            <DialogDescription>
+              This will publish the current draft to production. Continue?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="ghost">Cancel</Button>
+            <Button variant="primary">Confirm</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
   );
 }
 
