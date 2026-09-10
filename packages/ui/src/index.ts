@@ -2,6 +2,7 @@ export * from "./lib/cn";
 export * from "./tokens";
 
 export * from "./components/badge";
+export * from "./components/tag";
 export * from "./components/button";
 export * from "./components/card";
 export * from "./components/checkbox";

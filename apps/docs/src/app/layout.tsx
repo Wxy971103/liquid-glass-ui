@@ -11,9 +11,23 @@ export const metadata: Metadata = {
   description: "Liquid Glass UI — React component library & docs."
 };
 
+const themeInitScript = `
+(() => {
+  try {
+    const stored = localStorage.getItem("lg-theme");
+    const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = stored === "light" || stored === "dark" ? stored : (prefersLight ? "light" : "dark");
+    document.documentElement.dataset.theme = theme;
+  } catch {}
+})();
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className={`${inter.variable} ${syne.variable} ${mono.variable}`}>
         {children}
       </body>

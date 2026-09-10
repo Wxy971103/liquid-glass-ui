@@ -2,7 +2,13 @@ import { Divider } from "@liquid-glass/ui";
 
 import { DemoBlock } from "../../../../components/demo-block";
 import { PropsTable, type PropRow } from "../../../../components/props-table";
-import { DialogDemo } from "../../../../demos/dialog-demo";
+import {
+  DialogConfirmDemo,
+  DialogDestructiveDemo,
+  DialogDetailDemo,
+  DialogFormDemo,
+  DialogScrollDemo
+} from "../../../../demos/dialog-variants";
 
 const props: PropRow[] = [
   { name: "open", type: "boolean", default: "-", description: "受控打开状态。" },
@@ -23,10 +29,43 @@ export default function DialogDocPage() {
       </header>
 
       <DemoBlock
-        title="基础示例"
-        code={`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button>打开对话框</Button>\n      </DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>确认操作</DialogTitle>\n          <DialogDescription>这是一个基础容器示例。</DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <Button variant=\"ghost\">取消</Button>\n          <Button variant=\"destructive\">确认</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}`}
+        title="Confirm"
+        description="确认类弹窗：主操作明确，文案简洁。"
+        code={`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button } from "@liquid-glass/ui";\n\nexport function Demo(){\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button>打开 Confirm</Button>\n      </DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>确认操作</DialogTitle>\n          <DialogDescription>该操作会立即生效，且无法撤销。</DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <Button variant=\"ghost\">取消</Button>\n          <Button>继续</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}`}
       >
-        <DialogDemo />
+        <DialogConfirmDemo />
+      </DemoBlock>
+
+      <DemoBlock
+        title="Form"
+        description="表单弹窗：输入类保持实体填充，footer 负责提交/取消。"
+        code={`<Dialog>\n  <DialogTrigger asChild><Button>打开 Form</Button></DialogTrigger>\n  <DialogContent>\n    <DialogHeader>...</DialogHeader>\n    <form>\n      {/* form fields */}\n      <DialogFooter>...</DialogFooter>\n    </form>\n  </DialogContent>\n</Dialog>`}
+      >
+        <DialogFormDemo />
+      </DemoBlock>
+
+      <DemoBlock
+        title="Detail"
+        description="详情弹窗：适合 key-value 信息与只读内容。"
+        code={`<Dialog>\n  <DialogTrigger asChild><Button variant=\"secondary\">查看详情</Button></DialogTrigger>\n  <DialogContent>\n    <DialogHeader>...</DialogHeader>\n    {/* details */}\n    <DialogFooter>...</DialogFooter>\n  </DialogContent>\n</Dialog>`}
+      >
+        <DialogDetailDemo />
+      </DemoBlock>
+
+      <DemoBlock
+        title="Destructive"
+        description="破坏性操作：使用 destructive 变体并加强风险提示。"
+        code={`<Dialog>\n  <DialogTrigger asChild><Button variant=\"destructive\">删除</Button></DialogTrigger>\n  <DialogContent>\n    <DialogHeader>...</DialogHeader>\n    <DialogFooter>\n      <Button variant=\"ghost\">取消</Button>\n      <Button variant=\"destructive\">确认删除</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>`}
+      >
+        <DialogDestructiveDemo />
+      </DemoBlock>
+
+      <DemoBlock
+        title="Scroll"
+        description="长内容：内容区滚动，footer 保持固定操作区。"
+        code={`<DialogContent>\n  <DialogHeader />\n  <div className=\"max-h-[60vh] overflow-auto\">...</div>\n  <DialogFooter />\n</DialogContent>`}
+      >
+        <DialogScrollDemo />
       </DemoBlock>
 
       <Divider />

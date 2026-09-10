@@ -29,6 +29,7 @@ export const componentsNav: NavItem[] = [
   { title: "Dialog 对话框", href: "/components/dialog" },
   { title: "Toast 提示", href: "/components/toast" },
   { title: "Pagination 分页", href: "/components/pagination" },
+  { title: "Tag 标签", href: "/components/tag" },
   { title: "Badge 徽标", href: "/components/badge" },
   { title: "Card 卡片", href: "/components/card" },
   { title: "Empty 空状态", href: "/components/empty" },
