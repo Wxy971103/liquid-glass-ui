@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "@liquid-glass/ui/styles.css";
+
+/* Tailwind v4 source hints for monorepo */
+@source "../**/*.{ts,tsx}";
+@source "../../../../packages/ui/src/**/*.{ts,tsx}";
+
+html, body {
+  height: 100%;
+}
+
+body{
+  background: var(--lg-bg);
+  color: var(--lg-text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.lg-container{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.lg-muted{
+  color: var(--lg-muted);
+}
+
+.lg-code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
